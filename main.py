@@ -1,6 +1,7 @@
 from src.core.use_cases.get_bills import GetBillsUseCase
 from src.infrastructure.database.db_factory import DBFactory
 from src.infrastructure.repositories.bill_repository import BillRespositoryImpl
+import json
 
 
 def main():
@@ -13,7 +14,7 @@ def main():
     bills = get_bill_use.get_all_bills_by_period(1)
 
     for bill in bills:
-        print(bill, "--------------------------------------------------------------\n")
+        print(json.dumps(bill.to_json(), indent=4))
 
 
 if __name__ == "__main__":

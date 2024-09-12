@@ -34,6 +34,18 @@ class Bill:
 
         return BillBuilder()
 
+    def to_json(self):
+        return {
+            "date": self.date.strftime("%Y/%m/%d"),
+            "period": self.period,
+            "expDays": self.exp_days,
+            "expirationDate": self.expiration_date.strftime("%Y/%m/%d"),
+            "client": self.client.to_json(),
+            "items": list(map(lambda item: item.to_json(), self.items)),
+            "total": self.total,
+            "billNumber": self.bill_number,
+        }
+
     def __sum_item_value__(self, value: float) -> None:
         self.total += value
 

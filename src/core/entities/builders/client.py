@@ -43,7 +43,7 @@ class ClientBuilder(IClientBuilder):
         self._client.id = id
         return self
 
-    def cedula(self, cedula) -> ClientBuilder:
+    def cedula(self, cedula: str) -> ClientBuilder:
         self._client.cedula = cedula
         return self
 

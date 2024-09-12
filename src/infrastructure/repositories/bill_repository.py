@@ -58,7 +58,7 @@ class BillRespositoryImpl(IBillRepository):
                     Bill.builder()
                     .date(bill[1])
                     .period(bill[2])
-                    .exp_days(bill[3])
+                    .exp_days(int(bill[3]))
                     .expiration_date(bill[4])
                     .client(client)
                     .items([item])
