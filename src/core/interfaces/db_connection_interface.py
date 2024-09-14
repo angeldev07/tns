@@ -11,5 +11,9 @@ class DBConnectionInterface(ABC):
         pass
 
     @abstractmethod
+    def execute_query_map(self, query: str, params: tuple = ()):
+        pass
+
+    @abstractmethod
     def close(self):
         pass

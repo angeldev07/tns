@@ -22,6 +22,11 @@ class FirebirdConnection(DBConnectionInterface):
         cursor.execute(query, params)
         return cursor.fetchall()
 
+    def execute_query_map(self, query: str, params: tuple = ()):
+        cursor = self.connection.cursor()
+        cursor.execute(query, params)
+        return cursor.itermap()
+
     def close(self):
         if self.connection:
             self.connection.close()
